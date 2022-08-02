@@ -53,10 +53,7 @@ export default function SignIn() {
                         alignItems: "center",
                         backgroundColor: "white",
                         textAlign: "left",
-                        marginTop: "100px",
-                        marginLeft: "77px",
-                        marginRight: "77px",
-                        marginBottom: "77px"
+                        margin: "77px", 
                     }}
                     variant="outlined"
                 >
@@ -149,9 +146,7 @@ export default function SignIn() {
                             </Link>
                         </Typography>
                     </div>
-                    
                 </Paper>
-                
             </div>
         </div>
     ) 
