@@ -5,38 +5,29 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
-
-import { IconButton, InputAdornment } from "@mui/material";
-import { Visibility, VisibilityOff } from "@material-ui/icons";
+import {ReactComponent as IconPasswordInput } from "../assets/icon-password-input.svg";
+import { SvgIcon } from '@mui/material';
 import React from "react";
-
+import {useLogin} from "../hooks/useLogin";
 export default function SignUp() {
-    const [values, setValues] = React.useState({
-        password: '',
-        showPassword: false,
-        currentPassword: '',
-        showCurrentPassword: false
-      });
-      const handleChange = (prop: any) => (event: { target: { value: any; }; }) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-    
-      const handleMouseDownPassword = (event: { preventDefault: () => void; }) => {
-        event.preventDefault();
-      };
+
+    const {
+        handleOnChangeEmail,
+        handleOnChangePassword,
+        handleOnClickShowPassword,
+        showPassword,
+        showCurrentPassword,
+        handleOnClickShowCurrentPassword,
+        setShowCurrentPassword,
+        handleOnChangeCurrentPassword,
+      } = useLogin();
+
     return(
         <div 
             className="signUp-page" 
             style={{
                 display: "flex",
-                backgroundColor: "#E58F7E",
+                backgroundColor: "white",
                 flexDirection:"row",
                 height: "100vh",
             }}
@@ -47,12 +38,13 @@ export default function SignUp() {
                 }}
             >
                 <img 
-                    src="https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg" 
+                    src="bg.png" 
                     alt="background" 
                     style={{
                         objectFit: "contain",
                         maxWidth: "100%",
                         maxHeight: "100%",
+                        marginTop: "80px",
                     }}
                 />
             </div>
@@ -91,9 +83,8 @@ export default function SignUp() {
                         </Typography>
                         <Typography fontSize={14}> Have an account?{" "} 
                             <Link 
-                                href="https://google.com"
+                                href="/sign-in"
                                 underline="none"
-                                target="_blank"
                             >
                                 Sign in
                             </Link>
@@ -106,6 +97,7 @@ export default function SignUp() {
                             required
                             id="email"
                             label=""
+                            onChange={handleOnChangeEmail}
                             autoFocus
                         />
                         <Typography fontSize={14} fontWeight={600}> Password </Typography>
@@ -115,20 +107,13 @@ export default function SignUp() {
                             required
                             id="password"
                             autoFocus
-                            type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
-                            onChange={handleChange('password')}
+                            type={showPassword ? "text" : "password"}
+                            onChange={handleOnChangePassword}
                             InputProps={{
-                                endAdornment:   
-                                    <InputAdornment position="end"> Show password
-                                        {/* <IconButton
-                                            //onClick={handleClickShowPassword}
-                                            //onMouseDown={handleMouseDownPassword}
-                                            //edge="end"
-                                        >
-                                           //{values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton> */}
-                                    </InputAdornment>  
+                                endAdornment:  
+                                    <Button onClick={handleOnClickShowPassword} style={{height: 25, width: 25}}>
+                                        <SvgIcon component={IconPasswordInput} inheritViewBox/>
+                                    </Button>
                             }}
                         />
                         <Typography fontSize={14} fontWeight={600}> Confirm Password </Typography>
@@ -138,20 +123,13 @@ export default function SignUp() {
                             required
                             id="confirm-password"
                             autoFocus
-                            type={values.showCurrentPassword ? 'text' : 'password'}
-                            value={values.currentPassword}
-                            onChange={handleChange('currentPassword')}
+                            onChange={handleOnChangeCurrentPassword}
+                            type={showCurrentPassword ? "text" : "password"}
                             InputProps={{
-                                endAdornment:   
-                                    <InputAdornment position="end"> Show current password
-                                        {/* <IconButton
-                                            //onClick={handleClickShowPassword}
-                                            //onMouseDown={handleMouseDownPassword}
-                                            //edge="end"
-                                        >
-                                           //{values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton> */}
-                                    </InputAdornment>  
+                                endAdornment:
+                                    <Button onClick={handleOnClickShowCurrentPassword} style={{height: 25, width: 25}}>
+                                        <SvgIcon component={IconPasswordInput} inheritViewBox/>
+                                    </Button>
                             }}
                         />             
                         <FormControlLabel 

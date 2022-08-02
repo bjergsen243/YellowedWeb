@@ -4,38 +4,26 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
-import React from 'react';
-import InputAdornment from '@mui/material/InputAdornment';
-
+import {ReactComponent as IconPasswordInput } from "../assets/icon-password-input.svg";
+import { SvgIcon } from '@mui/material';
+import {useLogin } from "../hooks/useLogin"
 export default function SignIn() {
-    const [values, setValues] = React.useState({
-        password: '',
-        showPassword: false,
-        
-      });
-      const handleChange = (prop: any) => (event: { target: { value: any; }; }) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-    
-      const handleMouseDownPassword = (event: { preventDefault: () => void; }) => {
-        event.preventDefault();
-      };
+
+    const {
+        email,
+        handleOnChangeEmail,
+        handleOnChangePassword,
+        handleOnClickShowPassword,
+        showPassword,
+      } = useLogin();
     return(
         <div 
             className="signIn-page" 
             style={{
                 display: "flex",
-                backgroundColor: "#E58F7E",
+                backgroundColor: "white",
                 flexDirection:"row",
                 height: "100vh",
-                // backgroundImage: url() -> error chua them duoc background la anh
             }}
         >
             <div 
@@ -44,12 +32,13 @@ export default function SignIn() {
                 }}
             >
                 <img 
-                    src="https://ichef.bbci.co.uk/news/976/cpsprodpb/17638/production/_124800859_gettyimages-817514614.jpg" 
+                    src="bg.png" 
                     alt="background" 
                     style={{
                         objectFit: "contain",
                         maxWidth: "100%",
                         maxHeight: "100%",
+                        marginTop: "80px",
                     }}
                 />
             </div>
@@ -92,8 +81,7 @@ export default function SignIn() {
                         >
                             Don't have an account?{" "}
                         <Link 
-                            href="https://facebook.com" 
-                            target={"_blank"}
+                            href="/sign-up" 
                             underline="none"
                         >
                             Sign up
@@ -111,6 +99,8 @@ export default function SignIn() {
                             label="adrian@gmail.com"
                             name="email"
                             autoFocus
+                            value={email}
+                            onChange={handleOnChangeEmail}
                         />
                         <br />
                         <br />
@@ -124,20 +114,13 @@ export default function SignIn() {
                             name="password"
                             label="*******"
                             id="password"
-                            type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
-                            onChange={handleChange('password')}
+                            type={showPassword ? "text" : "password"}
+                            onChange={handleOnChangePassword}
                             InputProps={{
-                                endAdornment:   
-                                    <InputAdornment position="end"> Show password
-                                        {/* <IconButton
-                                            //onClick={handleClickShowPassword}
-                                            //onMouseDown={handleMouseDownPassword}
-                                            //edge="end"
-                                        >
-                                           //{values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton> */}
-                                    </InputAdornment>  
+                                endAdornment:  
+                                    <Button onClick={handleOnClickShowPassword} style={{height: 25, width: 25}}>
+                                        <SvgIcon component={IconPasswordInput} inheritViewBox/>
+                                    </Button>
                             }}
                         />
                         <br></br>
