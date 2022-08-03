@@ -15,6 +15,18 @@ interface INewPostComponent {
 
 }
 
+/**
+ * component de tao 1 bai viet moi.
+ *
+ * @param commentInPost so luong comment trong bai viet.
+ * @param likeInPost so luong like trong bai viet.
+ * @param timePosted khoi thoi gian da dang bai duoc.
+ * @param statusPost noi dung cua bai dang.
+ * @param imageData anh se hien thi thong tin khi khong load duoc.
+ * @param imageSource source cua file anh.
+ * @param profileName ten cua nguoi dung.
+ * @constructor interface cua ham.
+ */
 export default function NewPostComponent({
                                            commentInPost,
                                            likeInPost,
