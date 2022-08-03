@@ -1,5 +1,10 @@
 import {Paper} from "@mui/material";
 
+/**
+ * tao ra 1 Paper de tao cac truong thong tin mong muon.
+ *
+ * @constructor interface cua class.
+ */
 export default function SocialTabComponent() {
   return (
       <Paper
