@@ -3,7 +3,6 @@ import "./App.css";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Post from "./pages/Post";
-import ProfileUserFollowComponent from "./components/ProfileUserFollowComponent"
 import {
   BrowserRouter as Router,
   Routes,
