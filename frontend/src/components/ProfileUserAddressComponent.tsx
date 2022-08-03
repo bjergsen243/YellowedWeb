@@ -1,7 +1,10 @@
 import {Avatar, Typography} from "@mui/material";
 import {ReactComponent as AvatarProfile} from "../assets/profile-avatar.svg";
-
-export default function ProfileUserAddressComponent() {
+interface IProfileUserAddressComponent {
+  name: string;
+  address: string;
+}
+export default function ProfileUserAddressComponent({name, address}: IProfileUserAddressComponent) {
   return (
       <div
           id="profile-user-with-address"
@@ -17,8 +20,8 @@ export default function ProfileUserAddressComponent() {
           </Avatar>
         </div>
         <div id="profile-user-address">
-          <Typography>Nguyen Quynh Anh</Typography>
-          <Typography>Ha Noi</Typography>
+          <Typography>{name}</Typography>
+          <Typography>{address}</Typography>
         </div>
       </div>
   );
