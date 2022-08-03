@@ -24,6 +24,7 @@ import {ReactComponent as IconBirthdayCake} from "../assets/icon-birthdaycake.sv
 import ProfileUserFollowComponent from "../components/ProfileUserFollowComponent";
 import ProfileUserAddressComponent from "../components/ProfileUserAddressComponent";
 import TabBarFeatureComponent from "../components/TabBarFeatureComponent";
+import SocialNetworkComponent from "../components/SocialNetworkComponent";
 
 export default function Post() {
   return (
@@ -151,7 +152,7 @@ export default function Post() {
                     margin: "35px",
                   }}
               >
-                <ProfileUserAddressComponent/>
+                <ProfileUserAddressComponent name="Nguyen Quynh Anh" address="Hanoi"/>
                 <div id="icon-line">
                   {/* <Icon> <SvgIcon component={IconLine}/> </Icon> */}
                   <hr/>
@@ -216,27 +217,8 @@ export default function Post() {
                         marginBottom: 5,
                       }}
                   >
-                    <div
-                        id="instagram-linked"
-                        style={{
-                          marginBottom: 5,
-                        }}
-                    >
-                      <Typography>
-                        <Icon>
-                          <SvgIcon component={IconInsta} inheritViewBox/>
-                        </Icon>{" "}
-                        quynh_anh700
-                      </Typography>
-                    </div>
-                    <div id="linkedin-linked">
-                      <Typography>
-                        <Icon>
-                          <SvgIcon component={IconLinkedin} inheritViewBox/>
-                        </Icon>{" "}
-                        quynh_anh800
-                      </Typography>
-                    </div>
+                    <SocialNetworkComponent divId="instagram-linked" socialNetworkId="quynh_anh700"/>
+                    <SocialNetworkComponent divId="linkedin-linked" socialNetworkId="quynh_anh800"/>
                   </div>
                   <div>
                     <Button
@@ -253,7 +235,6 @@ export default function Post() {
               </div>
             </Paper>
           </div>
-
           <div
               id="news-tab"
               style={{
@@ -293,9 +274,9 @@ export default function Post() {
                     </Typography>
                   </div>
                   <hr/>
-                  <ProfileUserFollowComponent/>
-                  <ProfileUserFollowComponent/>
-                  <ProfileUserFollowComponent/>
+                  <ProfileUserFollowComponent name="Nguyen Minh Anh"/>
+                  <ProfileUserFollowComponent name="Marrie Lane"/>
+                  <ProfileUserFollowComponent name="Jane Johnson"/>
                   <div>
                     <Link underline="none" color="#8954C2" href="/">
                       View All
@@ -332,9 +313,9 @@ export default function Post() {
                   </div>
                   <hr/>
                   <div id="birthday-list">
-                    <ProfileUserAddressComponent/>
-                    <ProfileUserAddressComponent/>
-                    <ProfileUserAddressComponent/>
+                    <ProfileUserAddressComponent name="Nguyen Quynh Anh" address="Hanoi"/>
+                    <ProfileUserAddressComponent name="Nguyen Quynh Anh" address="Hanoi"/>
+                    <ProfileUserAddressComponent name="Nguyen Quynh Anh" address="Hanoi"/>
                   </div>
                   <div>
                     <Link underline="none" color="#8954C2" href="/">
