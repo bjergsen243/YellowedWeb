@@ -3,7 +3,7 @@ import {ReactComponent as IconHomePage} from "../assets/icon-home-page.svg";
 import {ReactComponentElement} from "react";
 interface ITabBarFeatureComponent {
   div_id: string;
-  // componentIcon: ReactComponent;
+  // componentIcon: string;
   hrefLink: string;
   featureDisplay: string;
 }
