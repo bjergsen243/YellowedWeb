@@ -3,8 +3,10 @@ import {Avatar, Icon, SvgIcon, Typography} from "@mui/material";
 import {ReactComponent as AvatarProfile} from "../assets/profile-avatar.svg";
 import {ReactComponent as IconTickCircle} from "../assets/icon-tick-circle.svg";
 import {ReactComponent as IconCloseCircle} from "../assets/icon-close-circle.svg";
-
-export default function ProfileUserFollowComponent() {
+interface IProfileUserFollowComponent {
+  name: string;
+}
+export default function ProfileUserFollowComponent({name}: IProfileUserFollowComponent) {
   return (
       <div
           id="profile-user-follow"
@@ -20,7 +22,7 @@ export default function ProfileUserFollowComponent() {
           </Avatar>
         </div>
         <div id="profile-user-follow">
-          <Typography>Nguyen Quynh Anh</Typography>
+          <Typography>{name}</Typography>
           <Icon>
             <SvgIcon component={IconTickCircle} inheritViewBox/>
           </Icon>
