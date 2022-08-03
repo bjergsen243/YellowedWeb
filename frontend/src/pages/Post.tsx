@@ -17,14 +17,23 @@ import {ReactComponent as IconGroups} from "../assets/icon-groups.svg";
 import {ReactComponent as AvatarProfile} from "../assets/profile-avatar.svg";
 import {ReactComponent as IconLike} from "../assets/icon-like.svg";
 import {ReactComponent as IconView} from "../assets/icon-view.svg";
-import {ReactComponent as IconInsta} from "../assets/icon-insta.svg";
+import {ReactComponent as IconInstagram} from "../assets/icon-insta.svg";
 import {ReactComponent as IconLinkedin} from "../assets/icon-linkedin.svg";
 import {ReactComponent as IconHandShake} from "../assets/icon-handshake.svg";
 import {ReactComponent as IconBirthdayCake} from "../assets/icon-birthdaycake.svg";
+import {ReactComponent as IconEmoji} from "../assets/icon-emoji.svg";
+import {ReactComponent as IconHeartLikePost} from "../assets/icon-heart-like-post.svg";
+import {ReactComponent as IconCommentPost} from "../assets/icon-comment-post.svg";
+import {ReactComponent as IconImageUpload} from "../assets/icon-image-upload.svg";
+import {ReactComponent as IconVideoUpload} from "../assets/icon-video-upload.svg";
+import {ReactComponent as IconAttachmentUpload} from "../assets/icon-attachment-upload.svg";
+import {ReactComponent as IconHashtagUpload} from "../assets/icon-hashtag-upload.svg";
+import {ReactComponent as IconThreeDots} from "../assets/icon-three-dots.svg";
 import ProfileUserFollowComponent from "../components/ProfileUserFollowComponent";
 import ProfileUserAddressComponent from "../components/ProfileUserAddressComponent";
 import TabBarFeatureComponent from "../components/TabBarFeatureComponent";
 import SocialNetworkComponent from "../components/SocialNetworkComponent";
+
 
 export default function Post() {
   return (
@@ -40,9 +49,10 @@ export default function Post() {
             style={{
               position: "absolute",
               width: "100%",
-              top: 20,
               display: "flex",
               flexDirection: "row",
+              marginLeft: 15,
+              padding: 20,
             }}
         >
           <div
@@ -86,10 +96,13 @@ export default function Post() {
                 display: "flex",
               }}
           >
-            <TabBarFeatureComponent div_id="home-page-button" hrefLink="/post" featureDisplay="Home page"/>
+            <TabBarFeatureComponent div_id="home-page-button" hrefLink="/post"
+                                    featureDisplay="Home page"/>
             <TabBarFeatureComponent div_id="watch-button" hrefLink="/watch" featureDisplay="Watch"/>
-            <TabBarFeatureComponent div_id="market-button" hrefLink="/market" featureDisplay="Market"/>
-            <TabBarFeatureComponent div_id="groups-button" hrefLink="/groups" featureDisplay="Groups"/>
+            <TabBarFeatureComponent div_id="market-button" hrefLink="/market"
+                                    featureDisplay="Market"/>
+            <TabBarFeatureComponent div_id="groups-button" hrefLink="/groups"
+                                    featureDisplay="Groups"/>
           </div>
           <div
               id="button-my-profile"
@@ -206,7 +219,7 @@ export default function Post() {
                   <hr/>
                 </div>
                 <div id="profile-social">
-                  <div>
+                  <div id="my-pages">
                     <Typography>MY PAGES</Typography>
                   </div>
                   <div
@@ -217,10 +230,11 @@ export default function Post() {
                         marginBottom: 5,
                       }}
                   >
-                    <SocialNetworkComponent divId="instagram-linked" socialNetworkId="quynh_anh700"/>
+                    <SocialNetworkComponent divId="instagram-linked"
+                                            socialNetworkId="quynh_anh700"/>
                     <SocialNetworkComponent divId="linkedin-linked" socialNetworkId="quynh_anh800"/>
                   </div>
-                  <div>
+                  <div id="edit-my-page-button">
                     <Button
                         fullWidth
                         variant="contained"
@@ -240,7 +254,197 @@ export default function Post() {
               style={{
                 flex: 2,
               }}
-          ></div>
+          >
+            <div id="status">
+              <Paper
+                  id="status-information"
+                  elevation={3}
+                  variant="outlined"
+                  style={{
+                    alignItems: "center",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                    margin: 50,
+                  }}
+              >
+                <div
+                    style={{
+                      alignItems: "center",
+                      margin: "35px",
+                    }}
+                >
+                  <div id="post-status">
+                    <Icon><SvgIcon component={IconLogo} inheritViewBox/></Icon>
+                    <TextField
+                        label="Share something..."
+                        variant="filled"
+                        InputProps={{
+                          endAdornment:
+                              <Button>
+                                <SvgIcon component={IconEmoji} inheritViewBox/>
+                              </Button>
+                        }}
+                    ></TextField>
+                  </div>
+                  <hr/>
+                  <div
+                      id="upload-things"
+                      style={{
+                        flexDirection: "row",
+                        display: "flex",
+                      }}
+                  >
+                    <Button component="label" style={{color: "#FFFFFF"}}>
+                      <input hidden accept="image/*" multiple type="file"/>
+                      <SvgIcon component={IconImageUpload} inheritViewBox/>
+                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Image</Typography>
+                    </Button>
+
+                    <Button component="label" style={{color: "#FFFFFF"}}>
+                      <input hidden accept="video/*" multiple type="file"/>
+                      <SvgIcon component={IconVideoUpload} inheritViewBox/>
+                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Video</Typography>
+                    </Button>
+
+                    <Button component="label" style={{color: "#FFFFFF"}}>
+                      <input hidden accept="/*" multiple type="file"/>
+                      <SvgIcon component={IconAttachmentUpload} inheritViewBox/>
+                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Attachment</Typography>
+                    </Button>
+
+                    <Button component="label" style={{color: "#FFFFFF"}}>
+                      <input hidden accept="/*" multiple type="file"/>
+                      <SvgIcon component={IconHashtagUpload} inheritViewBox/>
+                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Hashtag</Typography>
+                    </Button>
+                  </div>
+                </div>
+              </Paper>
+            </div>
+
+            <div id="news-post">
+              <Paper
+                  id="news-information"
+                  elevation={3}
+                  variant="outlined"
+                  style={{
+                    alignItems: "center",
+                    backgroundColor: "white",
+                    textAlign: "left",
+                    margin: 50,
+                  }}
+              >
+                <div
+                    id="a-post"
+                    style={{
+                      alignItems: "center",
+                      margin: "35px",
+                    }}
+                >
+                  <div
+                      id="profile-user-in-post"
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        marginTop: 10,
+                      }}
+                  >
+                    <div id="profile-user-avatar">
+                      <Avatar>
+                        <AvatarProfile/>
+                      </Avatar>
+                    </div>
+                    <div id="profile-user-information">
+                      <Typography>Nguyen Quynh Anh</Typography>
+                      <Typography>2 hours ago</Typography>
+                    </div>
+                    <div style={{marginLeft: 300}}>
+                      <Button>
+                        <SvgIcon component={IconThreeDots} inheritViewBox/>
+                      </Button>
+                    </div>
+                  </div>
+                  <div>
+                    <Typography>
+                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
+                    </Typography>
+                  </div>
+                  <div
+                      id="list-thing-post"
+                  >
+                    <img src="bg.png" alt="burger"/>
+                  </div>
+                  <div id="like-comment"
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                  }}>
+                    <Button><SvgIcon component={IconHeartLikePost} inheritViewBox/>
+                      <Typography>{" "}14</Typography>
+                    </Button>
+                    <Button style={{color: "#FFFFFF"}}><SvgIcon component={IconCommentPost} inheritViewBox/>
+                      <Typography style={{color: "#29282B"}}>{" "}14</Typography>
+                    </Button>
+                  </div>
+                </div>
+                <hr/>
+
+                <div
+                    id="a-post"
+                    style={{
+                      alignItems: "center",
+                      margin: "35px",
+                    }}
+                >
+                  <div
+                      id="profile-user-in-post"
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        marginTop: 10,
+                      }}
+                  >
+                    <div id="profile-user-avatar">
+                      <Avatar>
+                        <AvatarProfile/>
+                      </Avatar>
+                    </div>
+                    <div id="profile-user-information">
+                      <Typography>Nguyen Quynh Anh</Typography>
+                      <Typography>2 hours ago</Typography>
+                    </div>
+                    <div style={{marginLeft: 300}}>
+                      <Button>
+                        <SvgIcon component={IconThreeDots} inheritViewBox/>
+                      </Button>
+                    </div>
+                  </div>
+                  <div>
+                    <Typography>
+                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
+                    </Typography>
+                  </div>
+                  <div
+                      id="list-thing-post"
+                  >
+                    <img src="bg.png" alt="burger"/>
+                  </div>
+                  <div id="like-comment"
+                       style={{
+                         display: "flex",
+                         flexDirection: "row",
+                       }}>
+                    <Button><SvgIcon component={IconHeartLikePost} inheritViewBox/>
+                      <Typography>{" "}14</Typography>
+                    </Button>
+                    <Button style={{color: "#FFFFFF"}}><SvgIcon component={IconCommentPost} inheritViewBox/>
+                      <Typography style={{color: "#29282B"}}>{" "}14</Typography>
+                    </Button>
+                  </div>
+                </div>
+              </Paper>
+            </div>
+          </div>
 
           <div
               id="social-tab"
@@ -278,9 +482,9 @@ export default function Post() {
                   <ProfileUserFollowComponent name="Marrie Lane"/>
                   <ProfileUserFollowComponent name="Jane Johnson"/>
                   <div>
-                    <Link underline="none" color="#8954C2" href="/">
-                      View All
-                    </Link>
+                    <Button style={{
+                      textTransform: "none",
+                    }}>View all</Button>
                   </div>
                 </div>
               </Paper>
@@ -318,9 +522,9 @@ export default function Post() {
                     <ProfileUserAddressComponent name="Nguyen Quynh Anh" address="Hanoi"/>
                   </div>
                   <div>
-                    <Link underline="none" color="#8954C2" href="/">
-                      View All
-                    </Link>
+                    <Button style={{
+                      textTransform: "none",
+                    }}>View all</Button>
                   </div>
                 </div>
               </Paper>
