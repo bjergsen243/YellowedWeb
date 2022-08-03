@@ -33,6 +33,7 @@ import ProfileUserFollowComponent from "../components/ProfileUserFollowComponent
 import ProfileUserAddressComponent from "../components/ProfileUserAddressComponent";
 import TabBarFeatureComponent from "../components/TabBarFeatureComponent";
 import SocialNetworkComponent from "../components/SocialNetworkComponent";
+import NewPostComponent from "../components/NewPostComponent";
 
 
 export default function Post() {
@@ -230,9 +231,14 @@ export default function Post() {
                         marginBottom: 5,
                       }}
                   >
-                    <SocialNetworkComponent divId="instagram-linked"
-                                            socialNetworkId="quynh_anh700"/>
-                    <SocialNetworkComponent divId="linkedin-linked" socialNetworkId="quynh_anh800"/>
+                    <SocialNetworkComponent
+                        divId="instagram-linked"
+                        socialNetworkId="quynh_anh700"
+                    />
+                    <SocialNetworkComponent
+                        divId="linkedin-linked"
+                        socialNetworkId="quynh_anh800"
+                    />
                   </div>
                   <div id="edit-my-page-button">
                     <Button
@@ -297,25 +303,33 @@ export default function Post() {
                     <Button component="label" style={{color: "#FFFFFF"}}>
                       <input hidden accept="image/*" multiple type="file"/>
                       <SvgIcon component={IconImageUpload} inheritViewBox/>
-                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Image</Typography>
+                      <Typography
+                          style={{color: "#29282B", textTransform: "none"}}>{" "}Image</Typography>
                     </Button>
 
                     <Button component="label" style={{color: "#FFFFFF"}}>
                       <input hidden accept="video/*" multiple type="file"/>
                       <SvgIcon component={IconVideoUpload} inheritViewBox/>
-                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Video</Typography>
+                      <Typography
+                          style={{color: "#29282B", textTransform: "none"}}>{" "}Video</Typography>
                     </Button>
 
                     <Button component="label" style={{color: "#FFFFFF"}}>
                       <input hidden accept="/*" multiple type="file"/>
                       <SvgIcon component={IconAttachmentUpload} inheritViewBox/>
-                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Attachment</Typography>
+                      <Typography style={{
+                        color: "#29282B",
+                        textTransform: "none"
+                      }}>{" "}Attachment</Typography>
                     </Button>
 
                     <Button component="label" style={{color: "#FFFFFF"}}>
                       <input hidden accept="/*" multiple type="file"/>
                       <SvgIcon component={IconHashtagUpload} inheritViewBox/>
-                      <Typography style={{color: "#29282B", textTransform: "none"}}>{" "}Hashtag</Typography>
+                      <Typography style={{
+                        color: "#29282B",
+                        textTransform: "none"
+                      }}>{" "}Hashtag</Typography>
                     </Button>
                   </div>
                 </div>
@@ -334,114 +348,24 @@ export default function Post() {
                     margin: 50,
                   }}
               >
-                <div
-                    id="a-post"
-                    style={{
-                      alignItems: "center",
-                      margin: "35px",
-                    }}
-                >
-                  <div
-                      id="profile-user-in-post"
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        marginTop: 10,
-                      }}
-                  >
-                    <div id="profile-user-avatar">
-                      <Avatar>
-                        <AvatarProfile/>
-                      </Avatar>
-                    </div>
-                    <div id="profile-user-information">
-                      <Typography>Nguyen Quynh Anh</Typography>
-                      <Typography>2 hours ago</Typography>
-                    </div>
-                    <div style={{marginLeft: 300}}>
-                      <Button>
-                        <SvgIcon component={IconThreeDots} inheritViewBox/>
-                      </Button>
-                    </div>
-                  </div>
-                  <div>
-                    <Typography>
-                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
-                    </Typography>
-                  </div>
-                  <div
-                      id="list-thing-post"
-                  >
-                    <img src="bg.png" alt="burger"/>
-                  </div>
-                  <div id="like-comment"
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                  }}>
-                    <Button><SvgIcon component={IconHeartLikePost} inheritViewBox/>
-                      <Typography>{" "}14</Typography>
-                    </Button>
-                    <Button style={{color: "#FFFFFF"}}><SvgIcon component={IconCommentPost} inheritViewBox/>
-                      <Typography style={{color: "#29282B"}}>{" "}14</Typography>
-                    </Button>
-                  </div>
-                </div>
-                <hr/>
-
-                <div
-                    id="a-post"
-                    style={{
-                      alignItems: "center",
-                      margin: "35px",
-                    }}
-                >
-                  <div
-                      id="profile-user-in-post"
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        marginTop: 10,
-                      }}
-                  >
-                    <div id="profile-user-avatar">
-                      <Avatar>
-                        <AvatarProfile/>
-                      </Avatar>
-                    </div>
-                    <div id="profile-user-information">
-                      <Typography>Nguyen Quynh Anh</Typography>
-                      <Typography>2 hours ago</Typography>
-                    </div>
-                    <div style={{marginLeft: 300}}>
-                      <Button>
-                        <SvgIcon component={IconThreeDots} inheritViewBox/>
-                      </Button>
-                    </div>
-                  </div>
-                  <div>
-                    <Typography>
-                      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
-                    </Typography>
-                  </div>
-                  <div
-                      id="list-thing-post"
-                  >
-                    <img src="bg.png" alt="burger"/>
-                  </div>
-                  <div id="like-comment"
-                       style={{
-                         display: "flex",
-                         flexDirection: "row",
-                       }}>
-                    <Button><SvgIcon component={IconHeartLikePost} inheritViewBox/>
-                      <Typography>{" "}14</Typography>
-                    </Button>
-                    <Button style={{color: "#FFFFFF"}}><SvgIcon component={IconCommentPost} inheritViewBox/>
-                      <Typography style={{color: "#29282B"}}>{" "}14</Typography>
-                    </Button>
-                  </div>
-                </div>
+                <NewPostComponent
+                    statusPost="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"
+                    imageData="logo"
+                    profileName="Nguyen Quynh Anh"
+                    likeInPost={16}
+                    commentInPost={18}
+                    timePosted="2 hours ago"
+                    imageSource="bg.png"
+                />
+                <NewPostComponent
+                    statusPost="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout"
+                    imageData="logo"
+                    profileName="Nguyen Quynh Anh"
+                    likeInPost={14}
+                    commentInPost={14}
+                    timePosted="3 hours ago"
+                    imageSource="bg.png"
+                />
               </Paper>
             </div>
           </div>
