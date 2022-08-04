@@ -1,4 +1,4 @@
-import {Icon, SvgIcon, Typography} from "@mui/material";
+import {Button, Icon, SvgIcon, Typography} from "@mui/material";
 import {ReactComponent as IconInsta} from "../assets/icon-insta.svg";
 
 interface ISocialNetworkComponent {
@@ -19,14 +19,17 @@ export default function ProfileTabNetworkComponent({divId, socialNetworkId}: ISo
           id={divId}
           style={{
             marginBottom: 5,
+            display: "flex",
+            flexDirection: "row",
           }}
       >
-        <Typography>
-          <Icon>
+        <div>
+          <Button>
             <SvgIcon component={IconInsta} inheritViewBox/>
-          </Icon>{" "}
-          {socialNetworkId}
-        </Typography>
+          </Button>
+        </div>
+        <div><Typography>{socialNetworkId}</Typography></div>
+
       </div>
   )
 }

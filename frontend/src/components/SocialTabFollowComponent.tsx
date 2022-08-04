@@ -1,5 +1,5 @@
 import React from "react";
-import {Avatar, Icon, SvgIcon, Typography} from "@mui/material";
+import {Avatar, Button, Icon, SvgIcon, Typography} from "@mui/material";
 import {ReactComponent as AvatarProfile} from "../assets/profile-avatar.svg";
 import {ReactComponent as IconTickCircle} from "../assets/icon-tick-circle.svg";
 import {ReactComponent as IconCloseCircle} from "../assets/icon-close-circle.svg";
@@ -24,18 +24,21 @@ export default function SocialTabFollowComponent({name}: IProfileUserFollowCompo
           }}
       >
         <div id="profile-user-avatar">
-          <Avatar>
-            <AvatarProfile/>
-          </Avatar>
+          <Button>
+            <Avatar>
+              <AvatarProfile/>
+            </Avatar>
+          </Button>
+
         </div>
         <div id="profile-user-follow">
           <Typography>{name}</Typography>
-          <Icon>
-            <SvgIcon component={IconTickCircle} inheritViewBox/>
-          </Icon>
-          <Icon>
-            <SvgIcon component={IconCloseCircle} inheritViewBox/>
-          </Icon>
+          <Button>
+            <SvgIcon component={IconTickCircle} inheritViewBox sx={{fontSize: 20}}/>
+          </Button>
+            <Button>
+              <SvgIcon component={IconCloseCircle} inheritViewBox sx={{fontSize: 20}}/>
+            </Button>
         </div>
       </div>
   )

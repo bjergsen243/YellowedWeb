@@ -1,19 +1,46 @@
-import {Button, Icon, Paper, SvgIcon, Typography} from "@mui/material";
+import {
+  Avatar,
+  Badge,
+  Button,
+  Icon,
+  IconButton,
+  Modal,
+  Paper,
+  SvgIcon,
+  TextField,
+  Typography
+} from "@mui/material";
 import UserInformationComponent from "./UserInformationComponent";
 import {ReactComponent as IconLike} from "../assets/icon-like.svg";
 import {ReactComponent as IconView} from "../assets/icon-view.svg";
 import ProfileTabNetworkComponent from "./ProfileTabNetworkComponent";
+import {ReactComponent as IconEditButton} from "../assets/icon-edit-button.svg"
+import {ReactComponent as IconInstagram} from "../assets/icon-insta.svg";
+import {ReactComponent as IconLinkedin} from "../assets/icon-linkedin.svg";
+import {ReactComponent as IconAddCircle} from "../assets/icon-add-circle.svg";
 import React from "react";
 
 /**
  * component tab profile cua trang post hien thi thong tin ca nhan cua nguoi dung.
  * @constructor
  */
+const styleModalEditProfile = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 export default function ProfileTab() {
   const [open, setOpen] = React.useState(false);
   const handleOpenEditProfile = () => setOpen(true);
   const handleCloseEditProfile = () => setOpen(false);
-  return(
+  // @ts-ignore
+  return (
       <div
           id="profile-tab"
           style={{
@@ -38,10 +65,7 @@ export default function ProfileTab() {
               }}
           >
             <UserInformationComponent name="Nguyen Quynh Anh" address="Hanoi"/>
-            <div id="icon-line">
-              {/* <Icon> <SvgIcon component={IconLine}/> </Icon> */}
-              <hr/>
-            </div>
+            <hr/>
             <div
                 id="profile-status"
                 style={{
@@ -64,17 +88,15 @@ export default function ProfileTab() {
                     }}
                 >
                   <Typography>
-                    <Icon>
                       <SvgIcon component={IconLike} inheritViewBox/>
-                    </Icon>{" "}
+                    {" "}
                     10K Follows
                   </Typography>
                 </div>
                 <div id="profile-following">
                   <Typography>
-                    <Icon>
                       <SvgIcon component={IconView} inheritViewBox/>
-                    </Icon>{" "}
+                    {" "}
                     600 Following
                   </Typography>
                 </div>
@@ -122,6 +144,162 @@ export default function ProfileTab() {
                 >
                   Edit
                 </Button>
+                <Modal
+                    open={open}
+                    onClose={handleCloseEditProfile}
+                >
+                  <Paper sx={styleModalEditProfile}>
+                    <div id="edit-profile"><Typography align="center">Edit Profile</Typography>
+                    </div>
+                    <div id="edit-name-avtar"
+                         style={{
+                           display: "flex",
+                           flexDirection: "row",
+                           marginTop: 25,
+                         }}
+                    >
+                      <div id="edit-avatar">
+                        <Badge
+                            anchorOrigin={{vertical: "bottom", horizontal: "right"}}
+                            badgeContent={
+                          <Button>
+                            <Avatar
+                                alt="upload-avatar"
+                                src="../assets/upload-avatar.svg"
+                                sx={{'--Avatar-size': '24px'}}
+                            />
+                          </Button>
+                            }
+                            // badgeInset="14%"
+                            // sx={{'--Badge-paddingX': '0px'}}
+                        >
+                          <Avatar alt="user-avatar" src="../assets/profile-avatar.jpg"/>
+                        </Badge>
+                      </div>
+                      <div id="edit-name" style={{marginLeft: 40,}}>
+                        <TextField
+                            disabled
+                            defaultValue="Nguyen Quynh Anh"
+                            variant="standard"
+                            fullWidth
+                            InputProps={{ disableUnderline: true }}
+                        />
+                      </div>
+                      <div id="button-edit-name" style={{marginLeft: 100,}}>
+                        <Button>
+                          <SvgIcon component={IconEditButton} inheritViewBox/>
+                        </Button>
+                      </div>
+                    </div>
+                    <div id="edit-location"
+                         style={{
+                           marginTop: 25,
+                           display: "flex",
+                           flexDirection: "row",
+                         }}
+                    >
+                      <div>
+                        <div id="label-location"><Typography>Location</Typography></div>
+                        <div id="edit-location-field">
+                          <TextField
+                              disabled
+                              defaultValue="Hanoi"
+                              variant="standard"
+                              InputProps={{ disableUnderline: true }}
+                          />
+                        </div>
+                      </div>
+                      <div id="icon-edit-button" style={{
+                        marginLeft: 150,
+                      }}>
+                        <Button><SvgIcon component={IconEditButton} inheritViewBox/></Button>
+                      </div>
+                    </div>
+                    <hr/>
+                    <div id="edit-bio" style={{
+                      marginTop: 25,
+                      display: "flex",
+                      flexDirection: "row",
+                    }}>
+                      <div>
+                        <div id="label-bio"><Typography>Bio</Typography></div>
+                        <div id="edit-bio-field">
+                          <TextField
+                              disabled
+                              multiline
+                              fullWidth
+                              maxRows={2}
+                              defaultValue="The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',"
+                              variant="standard"
+                              InputProps={{ disableUnderline: true }}
+                          />
+                        </div>
+                      </div>
+                      <div id="icon-edit-button" style={{
+                        marginLeft: 170,
+                      }}>
+                        <Button><SvgIcon component={IconEditButton} inheritViewBox/></Button>
+                      </div>
+                    </div>
+                    <hr/>
+                    <div id="edit-my-pages">
+                      <Typography>My pages</Typography>
+                      <div id="my-pages-link">
+                        <div id="edit-instagram" style={{display: "flex", flexDirection: "row",}}>
+                          <div id="icon-button-instagram">
+                            <Button>
+                              <SvgIcon component={IconInstagram} inheritViewBox/>
+                            </Button>
+                          </div>
+                          <div id="edit-instagram-name">
+                            <TextField
+                                disabled
+                                defaultValue="quynh_anh700"
+                                variant="standard"
+                                InputProps={{ disableUnderline: true }}
+                            />
+                          </div>
+                          <div id="edit-button-instagram" style={{marginLeft: 150,}}>
+                            <Button><SvgIcon component={IconEditButton} inheritViewBox/></Button>
+                          </div>
+                        </div>
+
+                        <div id="edit-linkedin" style={{display: "flex", flexDirection: "row",}}>
+                          <div id="icon-button-linkedin">
+                            <Button>
+                              <SvgIcon component={IconLinkedin} inheritViewBox/>
+                            </Button>
+                          </div>
+                          <div id="edit-linkedin-name">
+                            <TextField
+                                disabled
+                                defaultValue="quynh_anh800"
+                                variant="standard"
+                                InputProps={{ disableUnderline: true }}
+                            />
+                          </div>
+                          <div id="edit-button-linkedin" style={{marginLeft: 150,}}>
+                            <Button><SvgIcon component={IconEditButton} inheritViewBox/></Button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="icon-button-add-website" style={{marginTop: 10, display: "flex", flexDirection: "row"}}>
+                        <div>
+                          <Button
+                              component="label" style={{color: "#FFFFFF",}}
+                          >
+                            <SvgIcon component={IconAddCircle} inheritViewBox/>
+                          </Button>
+                        </div>
+                        <div>
+                          <Button>
+                            <Typography style={{color: "#8954C2", textTransform: "none"}}>{" "}Add a website</Typography>
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                  </Paper>
+                </Modal>
               </div>
             </div>
           </div>

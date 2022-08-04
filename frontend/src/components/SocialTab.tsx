@@ -35,7 +35,7 @@ export default function SocialTab () {
                 }}
             >
               <div>
-                <Typography>
+                <Typography align="center">
                   <Icon>
                     <SvgIcon component={IconHandShake} inheritViewBox/>
                   </Icon>{" "}
@@ -73,7 +73,7 @@ export default function SocialTab () {
                 }}
             >
               <div>
-                <Typography>
+                <Typography align="center">
                   <Icon>
                     <SvgIcon component={IconBirthdayCake} inheritViewBox/>
                   </Icon>{" "}

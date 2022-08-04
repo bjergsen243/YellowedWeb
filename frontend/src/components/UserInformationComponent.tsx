@@ -1,4 +1,4 @@
-import {Avatar, Typography} from "@mui/material";
+import {Avatar, Button, Typography} from "@mui/material";
 import {ReactComponent as AvatarProfile} from "../assets/profile-avatar.svg";
 interface IProfileUserAddressComponent {
   name: string;
@@ -23,9 +23,11 @@ export default function UserInformationComponent({name, address}: IProfileUserAd
           }}
       >
         <div id="profile-user-avatar">
-          <Avatar>
-            <AvatarProfile/>
-          </Avatar>
+          <Button>
+            <Avatar>
+              <AvatarProfile/>
+            </Avatar>
+          </Button>
         </div>
         <div id="profile-user-address">
           <Typography>{name}</Typography>
