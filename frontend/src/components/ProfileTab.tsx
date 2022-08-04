@@ -3,7 +3,7 @@ import {
   Badge,
   Button,
   Icon,
-  IconButton,
+  IconButton, Input,
   Modal,
   Paper,
   SvgIcon,
@@ -224,14 +224,11 @@ export default function ProfileTab() {
                       <div>
                         <div id="label-bio"><Typography>Bio</Typography></div>
                         <div id="edit-bio-field">
-                          <TextField
+                          <Input
                               disabled
-                              multiline
                               fullWidth
-                              maxRows={2}
+                              disableUnderline={true}
                               defaultValue="The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',"
-                              variant="standard"
-                              InputProps={{ disableUnderline: true }}
                           />
                         </div>
                       </div>
@@ -252,11 +249,11 @@ export default function ProfileTab() {
                             </Button>
                           </div>
                           <div id="edit-instagram-name">
-                            <TextField
+                            <Input
+                                placeholder="Placeholder"
                                 disabled
                                 defaultValue="quynh_anh700"
-                                variant="standard"
-                                InputProps={{ disableUnderline: true }}
+                                disableUnderline={true}
                             />
                           </div>
                           <div id="edit-button-instagram" style={{marginLeft: 150,}}>
@@ -271,11 +268,11 @@ export default function ProfileTab() {
                             </Button>
                           </div>
                           <div id="edit-linkedin-name">
-                            <TextField
+                            <Input
+                                placeholder="Placeholder"
                                 disabled
                                 defaultValue="quynh_anh800"
-                                variant="standard"
-                                InputProps={{ disableUnderline: true }}
+                                disableUnderline={true}
                             />
                           </div>
                           <div id="edit-button-linkedin" style={{marginLeft: 150,}}>
