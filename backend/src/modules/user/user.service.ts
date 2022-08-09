@@ -24,6 +24,7 @@ export class UserService {
     user.save();
     return user;
   }
+
   async showById(id: number): Promise<UserEntity> {
     const user = await this.findById(id);
     delete user.password;

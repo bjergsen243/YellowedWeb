@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from 'src/model/entities/user.entity';
 import { PhotoModule } from 'src/modules/photo/photo.module';
 import { UserModule } from 'src/modules/user/user.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { QueueModule } from './modules/queue/queue.module';
 
 export const Modules = [
@@ -15,6 +16,7 @@ export const Modules = [
     password: '123456',
     database: 'fresherk2',
     entities: [UserEntity],
+    autoLoadEntities: true,
     synchronize: true,
   }),
   BullModule.forRoot({
@@ -29,4 +31,5 @@ export const Modules = [
   UserModule,
   PhotoModule,
   QueueModule,
+  AuthModule,
 ];
