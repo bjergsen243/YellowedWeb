@@ -15,12 +15,13 @@ import { JwtStrategy } from './strategies/jwt.strategy';
       imports: [ConfigModule],
       useFactory: async () => ({
         secret: 'dongoc123',
+        expiresIn: '1h',
       }),
       inject: [ConfigService],
     }),
   ],
   exports: [AuthService],
-  providers: [AuthService],
+  providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
 })
 export class AuthModule {}
